@@ -22,6 +22,12 @@
             <li><a href="#productos">Productos</a></li>
             <li><a href="./pages/resenia.html">Reseña</a></li>
             <li><a href="#contacto">Contacto</a></li>
+            <li>
+               <button type="button" id="btn-carrito" class="btn-carrito" aria-label="Ver carrito de compras">
+                  🛒 <span>Carrito</span>
+                  <span id="cart-counter" class="cart-counter">0</span>
+               </button>
+            </li>
          </ul>
       </nav>
 
@@ -53,16 +59,16 @@
 
       <section class="product-container"> 
 
-         <article class="product-card">
+         <article class="product-card" data-id="1" data-nombre="Pizza casera" data-precio="8500" data-imagen="https://marubotana.tv/uploads/responsive/2025/04/pizza-casera-480.webp">
 
-            <img src="https://marubotana.tv/uploads/responsive/2025/04/pizza-casera-480.webp" alt="Mi producto" loading="lazy" class="product-img">
+            <img src="https://www.oetker.es/assets/recipes/assets/a4ed7a36a675473fabda387048e3fe9c/1272x764/pizza-rucula-e-parmiggiano.webp" alt="Pizza casera" loading="lazy" class="product-img">
 
             <div class="product-content">
-               <span class="product-category">Categoría</span>
+               <span class="product-category">Platos Principales</span>
 
                <h4 class="product-title">Pizza</h4>
 
-               <p class="product-description"> La pizza casera amasada a mano</p>
+               <p class="product-description">La pizza casera amasada a mano</p>
 
                <p class="product-price">
                   <span>Precio: $</span>
@@ -74,12 +80,12 @@
 
          </article>
 
-         <article class="product-card">
+         <article class="product-card" data-id="2" data-nombre="Ravioles de salmón" data-precio="10000" data-imagen="https://www.clarin.com/2020/08/31/_OxTWtKCd_340x340__1.jpg">
 
-            <img src="https://www.clarin.com/2020/08/31/_OxTWtKCd_340x340__1.jpg" alt="Mi producto" loading="lazy" class="product-img">
+            <img src="https://www.clarin.com/2020/08/31/_OxTWtKCd_340x340__1.jpg" alt="Ravioles de salmón y queso" loading="lazy" class="product-img">
 
             <div class="product-content">
-               <span class="product-category">Categoría</span>
+               <span class="product-category">Pastas Caseras</span>
 
                <h4 class="product-title">Rabioles</h4>
 
@@ -87,7 +93,7 @@
 
                <p class="product-price">
                   <span>Precio: $</span>
-                  <span>10.00</span>
+                  <span>10.000</span>
                </p>
 
                <button type="button" class="product-button">Agregar al Carrito</button>
@@ -95,19 +101,19 @@
 
          </article>
 
-         <article class="product-card">
+         <article class="product-card" data-id="3" data-nombre="Carne al horno con papas" data-precio="20000" data-imagen="https://img-global.cpcdn.com/recipes/31a8d8fd5e6deef4/300x426cq80/carne-al-horno-foto-principal.webp">
 
-            <img src="https://img-global.cpcdn.com/recipes/31a8d8fd5e6deef4/300x426cq80/carne-al-horno-foto-principal.webp" alt="Mi producto" loading="lazy" class="product-img">
+            <img src="https://img-global.cpcdn.com/recipes/31a8d8fd5e6deef4/300x426cq80/carne-al-horno-foto-principal.webp" alt="Carne al horno con papas y verduras" loading="lazy" class="product-img">
 
             <div class="product-content">
-               <span class="product-category">Categoría</span>
+               <span class="product-category">Especialidades</span>
 
                <h4 class="product-title">Carne al horno con papas</h4>
 
-               <p class="product-description">carne al horno con papas y verduras</p>
+               <p class="product-description">Carne al horno con papas y verduras</p>
                <p class="product-price">
                   <span>Precio: $</span>
-                  <span>20.00</span>
+                  <span>20.000</span>
                </p>
 
                <button type="button" class="product-button">Agregar al Carrito</button>
@@ -120,14 +126,77 @@
 
       </section>
       <section id="contacto" class="section-contacto">
-         <h2>Contacto y Reservas</h2>
-         <p>📍 Dirección: Av. Gourmet 1234, Buenos Aires</p>
-         <p>📞 Teléfono: +54 11 5555-5555</p>
-         <p>🕒 Horario: Martes a Domingo de 12:00 a 23:30 hs</p>
+         <div class="card-contacto-reservas">
+            <h2 class="titulo-contacto">Contacto y Reservas</h2>
+
+            <div class="contacto-grid">
+               <!-- Información de contacto del restaurante -->
+               <div class="contacto-info">
+                  <p>📍 <strong>Dirección:</strong> Av. Gourmet 1234, Buenos Aires</p>
+                  <p>📞 <strong>Teléfono:</strong> +54 11 5555-5555</p>
+                  <p>🕒 <strong>Horario:</strong> Martes a Domingo de 12:00 a 23:30 hs</p>
+                  <p>✉️ <strong>Email:</strong> contacto@restaurante.com</p>
+                  <p>¿Tenés alguna consulta sobre nuestros platos o querés hacer una reserva especial? Completá el formulario y nuestro equipo te responderá a la brevedad.</p>
+               </div>
+
+               <!-- Formulario de contacto -->
+               <form action="https://formspree.io/f/mqkrvpwy" method="POST" class="contacto-form" id="form-contacto">
+                  <div class="form-group">
+                     <label for="nombre">Nombre:</label>
+                     <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" required autocomplete="name">
+                  </div>
+
+                  <div class="form-group">
+                     <label for="email">Correo electrónico:</label>
+                     <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required autocomplete="email">
+                  </div>
+
+                  <div class="form-group">
+                     <label for="mensaje">Mensaje:</label>
+                     <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu mensaje, consulta o detalle de reserva..." required></textarea>
+                  </div>
+
+                  <button type="submit" id="btn-enviar-contacto" class="btn-enviar-mensaje">Enviar Mensaje</button>
+                  <p id="form-contacto-estado" class="form-estado" aria-live="polite"></p>
+               </form>
+            </div>
+         </div>
       </section>
    </div>
 
+   <!-- Carrito de Compras Lateral / Drawer -->
+   <div id="cart-overlay" class="cart-overlay"></div>
+   <aside id="cart-drawer" class="cart-drawer" aria-label="Carrito de compras" aria-hidden="true">
+      <div class="cart-header">
+         <h3>🛒 Tu Carrito</h3>
+         <button type="button" id="cart-close" class="cart-close-btn" aria-label="Cerrar carrito">&times;</button>
+      </div>
 
+      <div id="cart-items" class="cart-items">
+         <!-- Los items del carrito se insertarán aquí dinámicamente con JavaScript -->
+      </div>
+
+      <div class="cart-footer">
+         <div class="cart-subtotal-row">
+            <span>Subtotal:</span>
+            <span id="cart-subtotal">$0</span>
+         </div>
+         <div class="cart-total-row">
+            <span>Total:</span>
+            <span id="cart-total">$0</span>
+         </div>
+         <div class="cart-actions">
+            <button type="button" id="btn-vaciar-carrito" class="btn-cart-secondary">Vaciar Carrito</button>
+            <button type="button" id="btn-finalizar-compra" class="btn-cart-primary">Finalizar Compra</button>
+         </div>
+      </div>
+   </aside>
+
+   <!-- Contenedor para Notificaciones Toast -->
+   <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+   <!-- Script de lógica del carrito -->
+   <script src="./js/cart.js"></script>
 </body>
 
 </html>

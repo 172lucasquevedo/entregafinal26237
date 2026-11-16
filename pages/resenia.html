@@ -21,6 +21,12 @@
             <li><a href="../index.html#productos">Productos</a></li>
             <li><a href="#">Reseña</a></li>
             <li><a href="../index.html#contacto">Contacto</a></li>
+            <li>
+               <button type="button" id="btn-carrito" class="btn-carrito" aria-label="Ver carrito de compras">
+                  🛒 <span>Carrito</span>
+                  <span id="cart-counter" class="cart-counter">0</span>
+               </button>
+            </li>
          </ul>
       </nav>
    </header>
@@ -48,6 +54,38 @@
       </section>
    </main>
 
+   <!-- Carrito de Compras Lateral / Drawer -->
+   <div id="cart-overlay" class="cart-overlay"></div>
+   <aside id="cart-drawer" class="cart-drawer" aria-label="Carrito de compras" aria-hidden="true">
+      <div class="cart-header">
+         <h3>🛒 Tu Carrito</h3>
+         <button type="button" id="cart-close" class="cart-close-btn" aria-label="Cerrar carrito">&times;</button>
+      </div>
 
+      <div id="cart-items" class="cart-items">
+         <!-- Los items del carrito se insertarán aquí dinámicamente con JavaScript -->
+      </div>
+
+      <div class="cart-footer">
+         <div class="cart-subtotal-row">
+            <span>Subtotal:</span>
+            <span id="cart-subtotal">$0</span>
+         </div>
+         <div class="cart-total-row">
+            <span>Total:</span>
+            <span id="cart-total">$0</span>
+         </div>
+         <div class="cart-actions">
+            <button type="button" id="btn-vaciar-carrito" class="btn-cart-secondary">Vaciar Carrito</button>
+            <button type="button" id="btn-finalizar-compra" class="btn-cart-primary">Finalizar Compra</button>
+         </div>
+      </div>
+   </aside>
+
+   <!-- Contenedor para Notificaciones Toast -->
+   <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+   <!-- Script de lógica del carrito -->
+   <script src="../js/cart.js"></script>
 </body>
 </html>
